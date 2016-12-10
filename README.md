@@ -1,3 +1,1 @@
-# angular2-skeleton
-
-# Just run npm start
+# angular2-bug-tracker
