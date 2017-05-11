@@ -9,22 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var bug_module_1 = require('./bugs/bug.module');
-var app_component_1 = require('./app.component');
-var AppModule = (function () {
-    function AppModule() {
+var BugModule = (function () {
+    function BugModule() {
     }
-    AppModule = __decorate([
+    BugModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, bug_module_1.BugModule],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [],
+            declarations: [],
+            exports: [],
+            providers: []
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], BugModule);
+    return BugModule;
 }());
-exports.AppModule = AppModule;
+exports.BugModule = BugModule;
 ;
-//# sourceMappingURL=app.module.js.map
+//# sourceMappingURL=bug.module.js.map

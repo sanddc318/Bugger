@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BugModule } from './bugs/bug.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
-    imports: [ BrowserModule ],
+    imports: [ BrowserModule, BugModule ],
     declarations: [ AppComponent ],
     bootstrap: [ AppComponent ]
 })
 
-export class AppModule { };
+export class AppModule {};
