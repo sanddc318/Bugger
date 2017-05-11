@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-    imports: [],
-    declarations: [],
-    exports: [],
-    providers: []
+  imports: [ SharedModule ],
+  declarations: [ ],
+  exports: [ ],
+  providers: [ ]
 })
 
 export class BugModule {};

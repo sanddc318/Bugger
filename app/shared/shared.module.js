@@ -9,14 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var SharedModule = (function () {
     function SharedModule() {
     }
     SharedModule = __decorate([
         core_1.NgModule({
-            imports: [],
+            imports: [common_1.CommonModule],
             declarations: [],
-            exports: []
+            exports: [common_1.CommonModule]
         }), 
         __metadata('design:paramtypes', [])
     ], SharedModule);
