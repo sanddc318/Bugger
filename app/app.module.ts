@@ -5,10 +5,11 @@ import { SharedModule } from './shared/shared.module';
 import { AppRouterModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   imports: [ BrowserModule, BugModule, AppRouterModule ],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent, NavbarComponent ],
   bootstrap: [ AppComponent ]
 })
 
