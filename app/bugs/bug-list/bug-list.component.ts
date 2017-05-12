@@ -7,4 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: [ 'bug-list.component.css' ]
 })
 
-export class BugListComponent {};
+export class BugListComponent { };

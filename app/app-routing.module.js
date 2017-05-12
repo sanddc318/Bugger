@@ -10,16 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var bug_list_component_1 = require('./bugs/bug-list/bug-list.component');
 var AppRouterModule = (function () {
     function AppRouterModule() {
     }
     AppRouterModule = __decorate([
         core_1.NgModule({
             imports: [
-                router_1.RouterModule.forRoot([
-                    { path: '', component: bug_list_component_1.BugListComponent }
-                ])
+                router_1.RouterModule.forRoot([])
             ],
             exports: [router_1.RouterModule]
         }), 
@@ -29,4 +26,4 @@ var AppRouterModule = (function () {
 }());
 exports.AppRouterModule = AppRouterModule;
 ;
-//# sourceMappingURL=app-routing.component.js.map
+//# sourceMappingURL=app-routing.module.js.map

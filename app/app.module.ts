@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BugModule } from './bugs/bug.module';
 import { SharedModule } from './shared/shared.module';
-import { AppRouterModule } from './app-routing.component';
+import { AppRouterModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
@@ -12,4 +12,4 @@ import { AppComponent } from './app.component';
   bootstrap: [ AppComponent ]
 })
 
-export class AppModule {};
+export class AppModule { };
