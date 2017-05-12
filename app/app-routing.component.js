@@ -9,18 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var router_1 = require('@angular/router');
+var bug_list_component_1 = require('./bugs/bug-list/bug-list.component');
+var AppRouterModule = (function () {
+    function AppRouterModule() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: '<router-outlet></router-outlet>'
+    AppRouterModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                router_1.RouterModule.forRoot([
+                    { path: '', component: bug_list_component_1.BugListComponent }
+                ])
+            ],
+            exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], AppRouterModule);
+    return AppRouterModule;
 }());
-exports.AppComponent = AppComponent;
+exports.AppRouterModule = AppRouterModule;
 ;
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=app-routing.component.js.map
