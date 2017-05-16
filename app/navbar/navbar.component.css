@@ -1,0 +1,20 @@
+.container a, .container ul {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+nav {
+  background-color: #34434B;
+  border-radius: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .24);
+}
+
+.logo-text {
+  font-size: 32px;
+  padding-left: 10px;
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+ul li { line-height: 2.5; }
+#navbar-dropdown { color: #FFF; }
+.dropdown-menu { border-radius: 0 }
