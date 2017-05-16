@@ -9,11 +9,17 @@ nav {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .24);
 }
 
-.logo-text {
+.logo-dominant {
   font-size: 32px;
   padding-left: 10px;
   font-family: 'Montserrat Subrayada', sans-serif;
 }
+
+/*.logo-recessive {
+  color: #D4D4D4;
+  line-height: 3.5;
+  text-transform: capitalize;
+}*/
 
 ul li { line-height: 2.5; }
 #navbar-dropdown { color: #FFF; }
