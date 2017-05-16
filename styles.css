@@ -1,0 +1,13 @@
+h1, h2, h3, h4, h5, h6 { color: #34434B; }
+.btn { border-radius: 0; }
+
+.btn-default {
+  background-color: #444;
+  border-color: #444;
+  color: #FFF;
+}
+.btn-default:hover,
+.btn-default:disabled {
+  background-color: #565656;
+  border-color: #565656;
+}
