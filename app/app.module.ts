@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
+
 @NgModule({
   imports: [
     BrowserModule,
