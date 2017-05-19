@@ -9,25 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var shared_module_1 = require('../shared/shared.module');
-var bug_routing_module_1 = require('./bug-routing.module');
-var bug_list_component_1 = require('./bug-list/bug-list.component');
-var bug_detail_component_1 = require('./bug-detail/bug-detail.component');
-var bug_service_1 = require('./service/bug.service');
-var BugModule = (function () {
-    function BugModule() {
+var BugDetailComponent = (function () {
+    function BugDetailComponent() {
     }
-    BugModule = __decorate([
-        core_1.NgModule({
-            imports: [shared_module_1.SharedModule, bug_routing_module_1.BugRouterModule],
-            declarations: [bug_list_component_1.BugListComponent, bug_detail_component_1.BugDetailComponent],
-            exports: [],
-            providers: [bug_service_1.BugService]
+    BugDetailComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'bug-detail',
+            templateUrl: './bug-detail.component.html',
+            styleUrls: ['./bug-detail.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], BugModule);
-    return BugModule;
+    ], BugDetailComponent);
+    return BugDetailComponent;
 }());
-exports.BugModule = BugModule;
+exports.BugDetailComponent = BugDetailComponent;
 ;
-//# sourceMappingURL=bug.module.js.map
+//# sourceMappingURL=bug-detail.component.js.map
