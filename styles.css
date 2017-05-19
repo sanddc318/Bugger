@@ -1,5 +1,6 @@
 h1, h2, h3, h4, h5, h6 { color: #34434B; }
 .btn { border-radius: 0; }
+.btn-xl { padding: 1.2rem 3rem; }
 
 .btn-default {
   background-color: #444;
@@ -10,4 +11,34 @@ h1, h2, h3, h4, h5, h6 { color: #34434B; }
 .btn-default:disabled {
   background-color: #565656;
   border-color: #565656;
+}
+
+.btn-primary {
+  background-color: #34434B;
+  border-color: #34434B;
+}
+.btn-primary:hover,
+.btn-primary:disabled {
+  background-color: #3F515A;
+  border-color: #3F515A;
+}
+
+.form-control {
+  border-radius: 0;
+  font-weight: lighter;
+}
+
+select {
+  text-transform: uppercase;
+  border: none !important;
+  height: 3.5rem !important;
+  -webkit-appearance: none;
+  -moz-webkit-appearance: none;
+  -o-webkit-appearance: none;
+  -ms-webkit-appearance: none;
+}
+
+textarea {
+  background-color: #F7F7F7 !important;
+  resize: none;
 }
