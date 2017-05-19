@@ -8,4 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: [ './bug-detail.component.css' ]
 })
 
-export class BugDetailComponent { };
+export class BugDetailComponent {
+  private modalId = "bugModal";
+};

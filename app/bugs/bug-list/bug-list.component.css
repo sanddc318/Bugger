@@ -1,4 +1,5 @@
 .mainhead div { margin-bottom: 2rem; }
+button.btn-default i { padding-right: 10px; }
 
 thead th {
   border-top: none;
