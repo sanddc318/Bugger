@@ -19,10 +19,10 @@ var BugDetailComponent = (function () {
     };
     BugDetailComponent.prototype.configureForm = function () {
         this.bugForm = new forms_1.FormGroup({
-            title: new forms_1.FormControl(),
-            status: new forms_1.FormControl(1),
-            severity: new forms_1.FormControl(3),
-            description: new forms_1.FormControl()
+            title: new forms_1.FormControl(null, forms_1.Validators.required),
+            status: new forms_1.FormControl(1, forms_1.Validators.required),
+            severity: new forms_1.FormControl(3, forms_1.Validators.required),
+            description: new forms_1.FormControl(null, forms_1.Validators.required)
         });
     };
     BugDetailComponent.prototype.submitForm = function () {
