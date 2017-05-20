@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -8,6 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: [ './bug-detail.component.css' ]
 })
 
-export class BugDetailComponent {
+export class BugDetailComponent implements OnInit {
   private modalId = "bugModal";
+  private bugForm: FormGroup;
+
+  ngOnInit() {
+    this.configureForm();
+  }
+
+  configureForm() {
+    this.bugForm = new FormGroup({
+      title: new FormControl(),
+      status: new FormControl(1),
+      severity: new FormControl(3),
+      description: new FormControl()
+    });
+  }
 };
