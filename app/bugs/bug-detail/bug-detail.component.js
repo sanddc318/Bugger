@@ -48,6 +48,10 @@ var BugDetailComponent = (function () {
         this.currentBug.severity = this.bugForm.value['severity'];
         this.currentBug.description = this.bugForm.value['description'];
         this.bugService.addBug(this.currentBug);
+        this.freshForm();
+    };
+    BugDetailComponent.prototype.freshForm = function () {
+        this.bugForm.reset({ status: 1, severity: 3 });
     };
     __decorate([
         core_1.Input(), 

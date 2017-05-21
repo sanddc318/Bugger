@@ -36,8 +36,9 @@ var BugService = (function () {
             description: bug.description,
             createdBy: 'Dontavious',
             createdDate: Date.now()
-        })
-            .catch(function (err) { return console.error('Unable to add bug to Firebase - ', err); });
+        }).catch(function (err) {
+            return console.error('Unable to add bug to Firebase - ', err);
+        });
     };
     BugService = __decorate([
         core_1.Injectable(), 
