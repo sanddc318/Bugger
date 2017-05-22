@@ -83,6 +83,11 @@ export class BugDetailComponent implements OnInit {
     this.bugService.updateBug(this.currentBug);
   }
 
+  deleteBug() {
+    this.bugService.deleteBug(this.currentBug);
+    location.reload();
+  }
+
   freshForm() {
     this.bugForm.reset({ status: this.statuses.Logged, severity: this.severityLevels.Cosmetic });
     this.cleanBug();

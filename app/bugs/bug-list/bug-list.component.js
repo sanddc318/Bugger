@@ -42,6 +42,16 @@ var BugListComponent = (function () {
             console.error("Unable to get UPDATED bug - ", err);
         });
     };
+    BugListComponent.prototype.getDeletedBugs = function () {
+        var _this = this;
+        this.bugService.onDeleteListener()
+            .subscribe(function (deletedBug) {
+            var bugIndex = _this.bugs.map(function (bug) { return bug.id; }).indexOf(deletedBug['id']);
+            _this.bugs[bugIndex] = deletedBug;
+        }, function (err) {
+            console.error("Unable to get DELETED bug - ", err);
+        });
+    };
     BugListComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

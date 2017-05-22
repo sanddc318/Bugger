@@ -64,6 +64,10 @@ var BugDetailComponent = (function () {
     BugDetailComponent.prototype.updateBug = function () {
         this.bugService.updateBug(this.currentBug);
     };
+    BugDetailComponent.prototype.deleteBug = function () {
+        this.bugService.deleteBug(this.currentBug);
+        location.reload();
+    };
     BugDetailComponent.prototype.freshForm = function () {
         this.bugForm.reset({ status: this.statuses.Logged, severity: this.severityLevels.Cosmetic });
         this.cleanBug();

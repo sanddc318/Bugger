@@ -24,14 +24,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let bug of bugs" [attr.data-target]=" '#' + bugDetail.modalId "
-            data-toggle="modal" (click)="bugDetail.configureForm(bug)">
-          <td>{{ bug.title }}</td>
+        <tr *ngFor="let bug of bugs">
+          <td class="bug-title" [attr.data-target]=" '#' + bugDetail.modalId "
+              data-toggle="modal" (click)="bugDetail.configureForm(bug)">
+            {{ bug.title }}
+          </td>
           <td>{{ bug.status | status }}</td>
           <td>{{ bug.severity | severity }}</td>
           <td>{{ bug.description }}</td>
           <td>{{ bug.createdBy }}</td>
           <td>{{ bug.createdDate | date }}</td>
+          <span class="bug-delete" (click)="bugDetail.deleteBug(bug)">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </span>
         </tr>
       </tbody>
     </table>

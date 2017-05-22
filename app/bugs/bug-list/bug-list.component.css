@@ -7,5 +7,15 @@ thead th {
 }
 
 th, td { font-weight: lighter; }
-td { border-bottom: .5px solid rgba(52, 67, 75, .1); }
-tbody > tr { cursor: pointer; }
+td { border-bottom: .5px solid rgba(52, 67, 75, .1); margin: 0; }
+
+.bug-title,
+.bug-delete { cursor: pointer; }
+.bug-title { font-weight: bold; }
+
+.bug-delete {
+  display: inline-block;
+  color: #e74c3c;
+  padding: .75rem;
+  vertical-align: top;
+}

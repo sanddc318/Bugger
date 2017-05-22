@@ -46,4 +46,15 @@ export class BugListComponent implements OnInit {
         console.error("Unable to get UPDATED bug - ", err);
       });
   }
+
+  getDeletedBugs() {
+    this.bugService.onDeleteListener()
+      .subscribe(deletedBug => {
+        const bugIndex = this.bugs.map(bug => bug.id).indexOf(deletedBug['id']);
+        this.bugs[bugIndex] = deletedBug;
+      },
+      err => {
+        console.error("Unable to get DELETED bug - ", err);
+      });
+  }
 };

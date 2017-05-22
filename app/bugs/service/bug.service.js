@@ -40,6 +40,18 @@ var BugService = (function () {
             });
         });
     };
+    BugService.prototype.onDeleteListener = function () {
+        var _this = this;
+        return Observable_1.Observable.create(function (obsv) {
+            _this.bugsDbRef.on('child_removed', function (bug) {
+                var deletedBug = bug.val();
+                deletedBug.id = bug.key;
+                obsv.next(deletedBug);
+            }, function (err) {
+                obsv.throw(err);
+            });
+        });
+    };
     BugService.prototype.addBug = function (bug) {
         var newBugRef = this.bugsDbRef.push();
         newBugRef.set({
@@ -59,6 +71,14 @@ var BugService = (function () {
         bug.updatedBy = "Joe"; // Set updating user (hard coded because no auth yet)
         bug.updatedDate = Date.now();
         currentBugRef.update(bug);
+    };
+    BugService.prototype.deleteBug = function (bug) {
+        var currentBugRef = this.bugsDbRef.child(bug.id);
+        bug.id = null;
+        currentBugRef.remove()
+            .catch(function (err) {
+            return console.error('Unable to delete bug from Firebase - ', err);
+        });
     };
     BugService = __decorate([
         core_1.Injectable(), 

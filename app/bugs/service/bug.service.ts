@@ -38,6 +38,19 @@ export class BugService {
     });
   }
 
+  onDeleteListener(): Observable<any> {
+    return Observable.create(obsv => {
+      this.bugsDbRef.on('child_removed', bug => {
+        const deletedBug = bug.val() as Bug;
+        deletedBug.id = bug.key;
+        obsv.next(deletedBug);
+      },
+      err => {
+        obsv.throw(err);
+      });
+    });
+  }
+
   addBug(bug: Bug) {
     const newBugRef = this.bugsDbRef.push();
     newBugRef.set({
@@ -58,5 +71,14 @@ export class BugService {
     bug.updatedDate = Date.now();
 
     currentBugRef.update(bug);
+  }
+
+  deleteBug(bug: Bug) {
+    const currentBugRef = this.bugsDbRef.child(bug.id);
+    bug.id = null;
+
+    currentBugRef.remove()
+      .catch(err =>
+      console.error('Unable to delete bug from Firebase - ', err));
   }
 };
