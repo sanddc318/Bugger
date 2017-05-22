@@ -23,7 +23,7 @@ var BugDetailComponent = (function () {
         this.severityLevels = constants_1.SEVERITY;
         this.statusArr = [];
         this.severityArr = [];
-        this.currentBug = new bug_1.Bug(null, null, this.statuses.Logged, this.severityLevels.Low, null, null, null, null, null);
+        this.currentBug = new bug_1.Bug(null, null, this.statuses.Logged, this.severityLevels.Cosmetic, null, null, null, null, null);
     }
     BugDetailComponent.prototype.ngOnInit = function () {
         this.statusArr = Object.keys(this.statuses).filter(Number);
@@ -57,7 +57,6 @@ var BugDetailComponent = (function () {
         else {
             this.addBug();
         }
-        this.freshForm();
     };
     BugDetailComponent.prototype.addBug = function () {
         this.bugService.addBug(this.currentBug);
@@ -66,11 +65,11 @@ var BugDetailComponent = (function () {
         this.bugService.updateBug(this.currentBug);
     };
     BugDetailComponent.prototype.freshForm = function () {
-        this.bugForm.reset({ status: this.statuses.Logged, severity: this.severityLevels.Low });
+        this.bugForm.reset({ status: this.statuses.Logged, severity: this.severityLevels.Cosmetic });
         this.cleanBug();
     };
     BugDetailComponent.prototype.cleanBug = function () {
-        this.currentBug = new bug_1.Bug(null, null, this.statuses.Logged, this.severityLevels.Low, null, null, null, null, null);
+        this.currentBug = new bug_1.Bug(null, null, this.statuses.Logged, this.severityLevels.Cosmetic, null, null, null, null, null);
     };
     __decorate([
         core_1.Input(), 

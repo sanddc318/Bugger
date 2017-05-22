@@ -24,7 +24,7 @@ export class BugDetailComponent implements OnInit {
   private severityLevels = SEVERITY;
   private statusArr: string[] = [];
   private severityArr: string[] = [];
-  @Input() currentBug = new Bug(null, null, this.statuses.Logged, this.severityLevels.Low, null, null, null, null, null);
+  @Input() currentBug = new Bug(null, null, this.statuses.Logged, this.severityLevels.Cosmetic, null, null, null, null, null);
 
   constructor(private formB: FormBuilder, private bugService: BugService) { }
 
@@ -73,8 +73,6 @@ export class BugDetailComponent implements OnInit {
     } else {
       this.addBug();
     }
-
-    this.freshForm();
   }
 
   addBug() {
@@ -86,11 +84,11 @@ export class BugDetailComponent implements OnInit {
   }
 
   freshForm() {
-    this.bugForm.reset({ status: this.statuses.Logged, severity: this.severityLevels.Low });
+    this.bugForm.reset({ status: this.statuses.Logged, severity: this.severityLevels.Cosmetic });
     this.cleanBug();
   }
 
   cleanBug() {
-    this.currentBug = new Bug(null, null, this.statuses.Logged, this.severityLevels.Low, null, null, null, null, null);
+    this.currentBug = new Bug(null, null, this.statuses.Logged, this.severityLevels.Cosmetic, null, null, null, null, null);
   }
 };
