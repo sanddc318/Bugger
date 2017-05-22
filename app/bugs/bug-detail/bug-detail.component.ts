@@ -28,40 +28,53 @@ export class BugDetailComponent implements OnInit {
 
   configureForm(bug?: Bug) {
     if (bug) {
-      this.currentBug = bug;
+      this.currentBug = new Bug(
+        bug.id,
+        bug.title,
+        bug.status,
+        bug.severity,
+        bug.description,
+        bug.createdBy,
+        bug.createdDate,
+        bug.updatedBy,
+        bug.updatedDate
+      );
     }
 
-    // this.bugForm = new FormGroup({
-    //   // NOTE: dummy regex in forbiddenStringValidtor
-    //   title: new FormControl(this.currentBug.title, [ Validators.required, forbiddenStringValidator(/puppy/i) ]),
-    //   status: new FormControl(this.currentBug.status, Validators.required),
-    //   severity: new FormControl(this.currentBug.severity, Validators.required),
-    //   description: new FormControl(this.currentBug.description, Validators.required)
-    // });
-
-    // Form Builder form example
-    this.bugForm = this.formB.group({
-      title: [this.currentBug.title, [ Validators.required, forbiddenStringValidator(/puppy/i) ]],
-      status: [this.currentBug.status, Validators.required],
-      severity: [this.currentBug.severity, Validators.required],
-      description: [this.currentBug.description, Validators.required]
+    this.bugForm = new FormGroup({
+      // NOTE: dummy regex in forbiddenStringValidtor
+      title: new FormControl(this.currentBug.title, [ Validators.required, forbiddenStringValidator(/puppy/i) ]),
+      status: new FormControl(this.currentBug.status, Validators.required),
+      severity: new FormControl(this.currentBug.severity, Validators.required),
+      description: new FormControl(this.currentBug.description, Validators.required)
     });
-
-    this.cleanBug();
   }
 
   submitForm() {
-    console.log(this.bugForm); // TODO: remove
-    this.addBug();
-  }
-
-  addBug() {
     this.currentBug.title = this.bugForm.value['title'];
     this.currentBug.status = this.bugForm.value['status'];
     this.currentBug.severity = this.bugForm.value['severity'];
     this.currentBug.description = this.bugForm.value['description'];
-    this.bugService.addBug(this.currentBug);
+
+    /*
+      Only updated bugs have ids so that's how the
+      method to use will be determined
+    */
+    if (this.currentBug.id) {
+      this.updateBug();
+    } else {
+      this.addBug();
+    }
+
     this.freshForm();
+  }
+
+  addBug() {
+    this.bugService.addBug(this.currentBug);
+  }
+
+  updateBug() {
+    this.bugService.updateBug(this.currentBug);
   }
 
   freshForm() {

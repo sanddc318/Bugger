@@ -25,35 +25,38 @@ var BugDetailComponent = (function () {
     };
     BugDetailComponent.prototype.configureForm = function (bug) {
         if (bug) {
-            this.currentBug = bug;
+            this.currentBug = new bug_1.Bug(bug.id, bug.title, bug.status, bug.severity, bug.description, bug.createdBy, bug.createdDate, bug.updatedBy, bug.updatedDate);
         }
-        // this.bugForm = new FormGroup({
-        //   // NOTE: dummy regex in forbiddenStringValidtor
-        //   title: new FormControl(this.currentBug.title, [ Validators.required, forbiddenStringValidator(/puppy/i) ]),
-        //   status: new FormControl(this.currentBug.status, Validators.required),
-        //   severity: new FormControl(this.currentBug.severity, Validators.required),
-        //   description: new FormControl(this.currentBug.description, Validators.required)
-        // });
-        // Form Builder form example
-        this.bugForm = this.formB.group({
-            title: [this.currentBug.title, [forms_1.Validators.required, forbidden_string_validator_1.forbiddenStringValidator(/puppy/i)]],
-            status: [this.currentBug.status, forms_1.Validators.required],
-            severity: [this.currentBug.severity, forms_1.Validators.required],
-            description: [this.currentBug.description, forms_1.Validators.required]
+        this.bugForm = new forms_1.FormGroup({
+            // NOTE: dummy regex in forbiddenStringValidtor
+            title: new forms_1.FormControl(this.currentBug.title, [forms_1.Validators.required, forbidden_string_validator_1.forbiddenStringValidator(/puppy/i)]),
+            status: new forms_1.FormControl(this.currentBug.status, forms_1.Validators.required),
+            severity: new forms_1.FormControl(this.currentBug.severity, forms_1.Validators.required),
+            description: new forms_1.FormControl(this.currentBug.description, forms_1.Validators.required)
         });
-        this.cleanBug();
     };
     BugDetailComponent.prototype.submitForm = function () {
-        console.log(this.bugForm); // TODO: remove
-        this.addBug();
-    };
-    BugDetailComponent.prototype.addBug = function () {
         this.currentBug.title = this.bugForm.value['title'];
         this.currentBug.status = this.bugForm.value['status'];
         this.currentBug.severity = this.bugForm.value['severity'];
         this.currentBug.description = this.bugForm.value['description'];
-        this.bugService.addBug(this.currentBug);
+        /*
+          Only updated bugs have ids so that's how the
+          method to use will be determined
+        */
+        if (this.currentBug.id) {
+            this.updateBug();
+        }
+        else {
+            this.addBug();
+        }
         this.freshForm();
+    };
+    BugDetailComponent.prototype.addBug = function () {
+        this.bugService.addBug(this.currentBug);
+    };
+    BugDetailComponent.prototype.updateBug = function () {
+        this.bugService.updateBug(this.currentBug);
     };
     BugDetailComponent.prototype.freshForm = function () {
         this.bugForm.reset({ status: 1, severity: 3 });

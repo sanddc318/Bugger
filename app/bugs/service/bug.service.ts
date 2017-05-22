@@ -16,6 +16,7 @@ export class BugService {
     return Observable.create(obsv => {
       this.bugsDbRef.on('child_added', bug => {
         const newBug = bug.val() as Bug;
+        newBug.id = bug.key; // Add id to Bug model
         obsv.next(newBug);
       },
       err => {
@@ -35,5 +36,14 @@ export class BugService {
       createdDate: Date.now()
     }).catch(err =>
       console.error('Unable to add bug to Firebase - ', err));
+  }
+
+  updateBug(bug: Bug) {
+    const currentBugRef = this.bugsDbRef.child(bug.id);
+    bug.id = null; // Remove id so firease doesn't duplicate
+    bug.updatedBy = "Joe"; // Set updating user (hard coded because no auth yet)
+    bug.updatedDate = Date.now();
+
+    currentBugRef.update(bug);
   }
 };

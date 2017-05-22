@@ -21,6 +21,7 @@ var BugService = (function () {
         return Observable_1.Observable.create(function (obsv) {
             _this.bugsDbRef.on('child_added', function (bug) {
                 var newBug = bug.val();
+                newBug.id = bug.key; // Add id to Bug model
                 obsv.next(newBug);
             }, function (err) {
                 obsv.throw(err);
@@ -39,6 +40,13 @@ var BugService = (function () {
         }).catch(function (err) {
             return console.error('Unable to add bug to Firebase - ', err);
         });
+    };
+    BugService.prototype.updateBug = function (bug) {
+        var currentBugRef = this.bugsDbRef.child(bug.id);
+        bug.id = null; // Remove id so firease doesn't duplicate
+        bug.updatedBy = "Joe"; // Set updating user (hard coded because no auth yet)
+        bug.updatedDate = Date.now();
+        currentBugRef.update(bug);
     };
     BugService = __decorate([
         core_1.Injectable(), 
