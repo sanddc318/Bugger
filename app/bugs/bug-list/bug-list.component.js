@@ -18,6 +18,7 @@ var BugListComponent = (function () {
     BugListComponent.prototype.ngOnInit = function () {
         this.getAddedBugs();
         this.getUpdatedBugs();
+        this.getDeletedBugs();
     };
     BugListComponent.prototype.getAddedBugs = function () {
         var _this = this;

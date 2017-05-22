@@ -75,7 +75,6 @@ export class BugService {
 
   deleteBug(bug: Bug) {
     const currentBugRef = this.bugsDbRef.child(bug.id);
-    bug.id = null;
 
     currentBugRef.remove()
       .catch(err =>

@@ -74,7 +74,6 @@ var BugService = (function () {
     };
     BugService.prototype.deleteBug = function (bug) {
         var currentBugRef = this.bugsDbRef.child(bug.id);
-        bug.id = null;
         currentBugRef.remove()
             .catch(function (err) {
             return console.error('Unable to delete bug from Firebase - ', err);

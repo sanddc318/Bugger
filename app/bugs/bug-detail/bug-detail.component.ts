@@ -83,7 +83,8 @@ export class BugDetailComponent implements OnInit {
     this.bugService.updateBug(this.currentBug);
   }
 
-  deleteBug() {
+  deleteBug(bug?: Bug) {
+    this.configureForm(bug);
     this.bugService.deleteBug(this.currentBug);
     location.reload();
   }

@@ -11,7 +11,7 @@ td { border-bottom: .5px solid rgba(52, 67, 75, .1); margin: 0; }
 
 .bug-title,
 .bug-delete { cursor: pointer; }
-.bug-title { font-weight: bold; }
+.bug-title { color: #3498db; }
 
 .bug-delete {
   display: inline-block;

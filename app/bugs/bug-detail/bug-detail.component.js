@@ -64,7 +64,8 @@ var BugDetailComponent = (function () {
     BugDetailComponent.prototype.updateBug = function () {
         this.bugService.updateBug(this.currentBug);
     };
-    BugDetailComponent.prototype.deleteBug = function () {
+    BugDetailComponent.prototype.deleteBug = function (bug) {
+        this.configureForm(bug);
         this.bugService.deleteBug(this.currentBug);
         location.reload();
     };

@@ -20,6 +20,7 @@ export class BugListComponent implements OnInit {
   ngOnInit() {
     this.getAddedBugs();
     this.getUpdatedBugs();
+    this.getDeletedBugs();
   }
 
   getAddedBugs() {
