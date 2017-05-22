@@ -21,7 +21,20 @@ export class BugService {
       },
       err => {
         obsv.throw(err);
-      })
+      });
+    });
+  }
+
+  onChangeListener(): Observable<any> {
+    return Observable.create(obsv => {
+      this.bugsDbRef.on('child_changed', bug => {
+        const updatedBug = bug.val() as Bug;
+        updatedBug.id = bug.key;
+        obsv.next(updatedBug);
+      },
+      err => {
+        obsv.throw(err);
+      });
     });
   }
 
