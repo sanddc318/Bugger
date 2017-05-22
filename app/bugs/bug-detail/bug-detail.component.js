@@ -18,25 +18,30 @@ var BugDetailComponent = (function () {
         this.formB = formB;
         this.bugService = bugService;
         this.modalId = "bugModal";
-        this.currentBug = new bug_1.Bug(null, null, null, null, null, null, null, null, null);
+        this.currentBug = new bug_1.Bug(null, null, 1, 3, null, null, null, null, null);
     }
     BugDetailComponent.prototype.ngOnInit = function () {
         this.configureForm();
     };
-    BugDetailComponent.prototype.configureForm = function () {
-        this.bugForm = new forms_1.FormGroup({
-            title: new forms_1.FormControl(null, [forms_1.Validators.required, forbidden_string_validator_1.forbiddenStringValidator(/puppy/i)]),
-            status: new forms_1.FormControl(1, forms_1.Validators.required),
-            severity: new forms_1.FormControl(3, forms_1.Validators.required),
-            description: new forms_1.FormControl(null, forms_1.Validators.required)
-        });
-        // Form Builder form example
-        // this.bugForm = this.formB.group({
-        //   title: [null, [ Validators.required, forbiddenStringValidator(/puppy/i) ]],
-        //   status: [1, Validators.required],
-        //   severity: [3, Validators.required],
-        //   description: [null, Validators.required]
+    BugDetailComponent.prototype.configureForm = function (bug) {
+        if (bug) {
+            this.currentBug = bug;
+        }
+        // this.bugForm = new FormGroup({
+        //   // NOTE: dummy regex in forbiddenStringValidtor
+        //   title: new FormControl(this.currentBug.title, [ Validators.required, forbiddenStringValidator(/puppy/i) ]),
+        //   status: new FormControl(this.currentBug.status, Validators.required),
+        //   severity: new FormControl(this.currentBug.severity, Validators.required),
+        //   description: new FormControl(this.currentBug.description, Validators.required)
         // });
+        // Form Builder form example
+        this.bugForm = this.formB.group({
+            title: [this.currentBug.title, [forms_1.Validators.required, forbidden_string_validator_1.forbiddenStringValidator(/puppy/i)]],
+            status: [this.currentBug.status, forms_1.Validators.required],
+            severity: [this.currentBug.severity, forms_1.Validators.required],
+            description: [this.currentBug.description, forms_1.Validators.required]
+        });
+        this.cleanBug();
     };
     BugDetailComponent.prototype.submitForm = function () {
         console.log(this.bugForm); // TODO: remove
@@ -52,6 +57,10 @@ var BugDetailComponent = (function () {
     };
     BugDetailComponent.prototype.freshForm = function () {
         this.bugForm.reset({ status: 1, severity: 3 });
+        this.cleanBug();
+    };
+    BugDetailComponent.prototype.cleanBug = function () {
+        this.currentBug = new bug_1.Bug(null, null, 1, 3, null, null, null, null, null);
     };
     __decorate([
         core_1.Input(), 
