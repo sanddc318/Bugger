@@ -8,3 +8,4 @@ thead th {
 
 th, td { font-weight: lighter; }
 td { border-bottom: .5px solid rgba(52, 67, 75, .1); }
+tbody > tr { cursor: pointer; }

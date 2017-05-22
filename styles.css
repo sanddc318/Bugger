@@ -2,23 +2,31 @@ h1, h2, h3, h4, h5, h6 { color: #34434B; }
 .btn { border-radius: 0; }
 .btn-xl { padding: 1.2rem 3rem; }
 
-.btn-default {
+.btn-default,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:active:focus {
   background-color: #444;
   border-color: #444;
   color: #FFF;
 }
 .btn-default:hover,
-.btn-default:disabled {
+.btn-default:disabled,
+.btn-default:disabled:hover {
   background-color: #565656;
   border-color: #565656;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:active:focus {
   background-color: #34434B;
   border-color: #34434B;
 }
 .btn-primary:hover,
-.btn-primary:disabled {
+.btn-primary:disabled,
+.btn-primary:disabled:hover {
   background-color: #3F515A;
   border-color: #3F515A;
 }
